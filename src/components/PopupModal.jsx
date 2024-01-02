@@ -11,7 +11,7 @@ const Modal = ({ toggleClose }) => {
         </button>
 
         <div className="modal">
-          <h5 className="heading">DISCLAMER</h5>
+          <h5 className="heading">DISCLAIMER</h5>
           <div className="underline"></div>
 
           <div className="modalContent">
