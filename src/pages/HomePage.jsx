@@ -1,8 +1,14 @@
 import { FeaturedProducts, Hero, Services, Contact } from "../components/index.js";
 import Modal from "../components/PopupModal.jsx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 const HomePage = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(
+    JSON.parse(localStorage.getItem("popupStatus")) ?? true
+  );
+
+  useEffect(() => {
+    localStorage.setItem("popupStatus", JSON.stringify(isOpen));
+  }, [isOpen]);
 
   return (
     <>

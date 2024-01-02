@@ -5,7 +5,7 @@ const Modal = ({ toggleClose }) => {
   return (
     <Wrapper className="section">
       <div className="darkBG" onClick={toggleClose} />
-      <div className="centered">
+      <div className="container">
         <button className="closeBtn" onClick={toggleClose}>
           <RiCloseLine style={{ marginBottom: "-3px" }} />
         </button>
@@ -39,7 +39,7 @@ const Wrapper = styled.section`
     position: absolute;
   }
 
-  .centered {
+  .container {
     position: fixed;
     top: 50%;
     left: 50%;
