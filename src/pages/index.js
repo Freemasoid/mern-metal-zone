@@ -1,4 +1,5 @@
 import AboutPage from "./AboutPage.jsx";
+import AuthWrapper from "./AuthWrapper.jsx";
 import CartPage from "./CartPage.jsx";
 import CheckoutPage from "./CheckoutPage.jsx";
 import ErrorPage from "./ErrorPage.jsx";
@@ -9,6 +10,7 @@ import SingleProductPage from "./SingleProductPage.jsx";
 
 export {
   AboutPage,
+  AuthWrapper,
   CartPage,
   CheckoutPage,
   ErrorPage,
