@@ -48,7 +48,7 @@ const Nav = () => {
 };
 
 const NavContainer = styled.nav`
-  height: 5rem;
+  height: 7rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -62,9 +62,11 @@ const NavContainer = styled.nav`
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     img {
-      width: 175px;
-      margin-left: -15px;
+      width: 115px;
+      display: block;
+      margin: auto;
     }
   }
   .nav-toggle {
