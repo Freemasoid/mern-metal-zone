@@ -9,7 +9,13 @@
 
 ## Styling:
 
-1. Update footer
+1. ~~Update footer~~
 2. Update drop out menu for smaller screens
 3. Fix services grid layout
 4. Move logo as main image for smaller screens to fix emptiness?
+
+## Components
+
+1. ~~Redo contact component on main page~~
+2. ~~Fix Hero component being overlapped by featured products~~
+3. Finish Help & FAQ
