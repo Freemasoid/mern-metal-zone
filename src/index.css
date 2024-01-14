@@ -36,7 +36,7 @@ Variables
   --clr-black: #222;
   --transition: all 0.3s linear;
   --spacing: 0.1rem;
-  --radius: 1rem;
+  --radius: 0.8rem;
   --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   --drop-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.2);
