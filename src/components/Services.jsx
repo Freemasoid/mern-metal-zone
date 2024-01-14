@@ -42,7 +42,7 @@ const Wrapper = styled.section`
   }
   padding: 5rem 0;
 
-  background: var(--clr-grey-2);
+  background: var(--clr-grey-1);
 
   .header h3 {
     margin-bottom: 2rem;
@@ -50,7 +50,8 @@ const Wrapper = styled.section`
   p {
     margin-bottom: 0;
     line-height: 1.8;
-    color: var(--clr-primary-3);
+    color: var(--clr-grey-9);
+    font-size: 1.125rem;
   }
   .services-center {
     margin-top: 4rem;

@@ -25,7 +25,7 @@ const FeaturedProducts = () => {
         <div className="underline"></div>
       </div>
       <div className="section-center featured">
-        {featured.slice(0, 6).map((product) => {
+        {featured.slice(0, 4).map((product) => {
           return <Product key={product.id} {...product} />;
         })}
       </div>
@@ -41,6 +41,7 @@ const Wrapper = styled.section`
     margin: 4rem auto;
     display: grid;
     gap: 2.5rem;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
 
     img {
       height: 225px;
@@ -52,9 +53,9 @@ const Wrapper = styled.section`
     margin: 0 auto;
     text-align: center;
   }
-  @media (min-width: 576px) {
+  @media (min-width: 768px) {
     .featured {
-      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 `;

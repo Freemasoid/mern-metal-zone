@@ -39,11 +39,12 @@ const Wrapper = styled.section`
     object-fit: cover;
   }
   p {
-    line-height: 2;
+    line-height: 2rem;
+    font-size: 1.125rem;
     max-width: 45em;
     margin: 0 auto;
     margin-top: 2rem;
-    color: var(--clr-grey-5);
+    color: var(--clr-grey-6);
   }
   .title {
     text-align: left;
