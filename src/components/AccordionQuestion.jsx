@@ -43,6 +43,7 @@ const Wrapper = styled.div`
     width: 2rem;
     height: 2rem;
     background: var(--clr-grey-2);
+    color: var(--clr-black);
     display: flex;
     align-items: center;
     justify-content: center;
