@@ -44,8 +44,6 @@ const Contact = () => {
   );
 };
 const Wrapper = styled.section`
-  padding-top: 3rem;
-
   .section-center {
     width: 100%;
     margin-left: auto;
@@ -56,7 +54,7 @@ const Wrapper = styled.section`
     padding-bottom: 3rem;
     display: grid;
     grid-template-columns: repeat(1, minmax(0, 1fr));
-    gap: 8rem;
+    gap: 2rem;
   }
 
   .accordion {
@@ -69,19 +67,22 @@ const Wrapper = styled.section`
     .section-center {
       padding-left: 1.5rem;
       padding-right: 1.5rem;
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
       padding-top: 6rem;
       padding-bottom: 6rem;
     }
   }
 
   @media (min-width: 1024px) {
+    padding-top: 3rem;
+
     .section-center {
       padding-left: 2rem;
       padding-right: 2rem;
       padding-top: 8rem;
       padding-bottom: 8rem;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8rem;
     }
   }
 `;

@@ -18,4 +18,4 @@
 
 1. ~~Redo contact component on main page~~
 2. ~~Fix Hero component being overlapped by featured products~~
-3. Finish Help & FAQ
+3. ~~Finish Help & FAQ~~
