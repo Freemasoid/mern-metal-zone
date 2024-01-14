@@ -78,15 +78,16 @@ const Wrapper = styled.footer`
     margin-right: auto;
     padding-left: 1rem;
     padding-right: 1rem;
-    display: gird;
+    display: grid;
     grid-template-columns: repeat(1, minmax(0, 1fr));
-    gap: 3rem;
+    gap: 2rem;
   }
 
   .box {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
   }
 
   .logo {
@@ -188,6 +189,7 @@ const Wrapper = styled.footer`
 
     .box {
       align-items: start;
+      text-align: start;
     }
 
     .logo {
@@ -209,6 +211,7 @@ const Wrapper = styled.footer`
       padding-left: 2rem;
       padding-right: 2rem;
       display: grid;
+      gap: 3rem;
       grid-template-columns: repeat(4, minmax(0, 1fr));
     }
   }
