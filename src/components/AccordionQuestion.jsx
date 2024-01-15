@@ -7,11 +7,11 @@ function AccordionQuestion({ title, content }) {
   const [deets, setDeets] = useState(false);
 
   return (
-    <Wrapper className="question">
-      <div className="container">
+    <Wrapper className="container">
+      <div className="questions">
         <h5>{title}</h5>
         <button className="question-btn" onClick={() => setDeets(!deets)}>
-          {deets ? <SlArrowDown /> : <SlArrowUp />}
+          {deets ? <SlArrowUp /> : <SlArrowDown />}
         </button>
       </div>
       {deets && <p>{content}</p>}
@@ -20,21 +20,28 @@ function AccordionQuestion({ title, content }) {
 }
 
 const Wrapper = styled.div`
+  h5 {
+    margin: 0;
+  }
+
+  p {
+    max-width: 23rem;
+  }
+
   .container {
+    padding: 1rem 1.5rem;
+    border: 2px solid var(--clr-grey-4);
+    border-radius: var(--radius);
+    box-shadow: var(--drop-shadow);
+  }
+
+  .questions {
     display: flex;
     flex-flow: row;
     justify-content: space-between;
-    height: 3rem;
+    height: 3.25rem;
     align-items: center;
-  }
-
-  .question {
-    padding: 1rem 1.5rem;
-    border: 2px solid var(--clr-grey-4);
-    margin-bottom: 1rem;
-    border-radius: var(--radius);
-    box-shadow: var(--drop-shadow);
-    margin-bottom: 2rem;
+    align-content: center;
   }
 
   .question-btn {
@@ -49,7 +56,7 @@ const Wrapper = styled.div`
     justify-content: center;
     border-radius: var(--radius);
     cursor: pointer;
-    align-self: flex-start;
+
     min-width: 2rem;
   }
 `;

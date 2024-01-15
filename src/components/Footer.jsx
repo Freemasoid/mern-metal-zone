@@ -31,11 +31,19 @@ const Footer = () => {
           <h3>Feedback</h3>
           <p>
             You can send us Feedback via our{" "}
-            <Link className="link" to="/contact">
+            <Link className="link" to="">
               Contact Form
             </Link>
-            , Discord or support@metalzone.com. If you are happy with our Service you can
-            leave a Review on Trustpilot.
+            ,{" "}
+            <a className="link" href="#">
+              Discord
+            </a>{" "}
+            or support@metalzone.com. If you are happy with our Service you can leave a
+            Review on{" "}
+            <a className="link" href="https://www.trustpilot.com/">
+              Trustpilot
+            </a>
+            .
           </p>
         </div>
 
