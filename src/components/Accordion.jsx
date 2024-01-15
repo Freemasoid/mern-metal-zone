@@ -7,7 +7,7 @@ const Accordion = ({ items }) => {
     <Wrapper>
       <section className="container">
         {items.map((item) => {
-          return <AccordionQuestion key={items.id} {...item} />;
+          return <AccordionQuestion key={item.id} {...item} />;
         })}
       </section>
     </Wrapper>
