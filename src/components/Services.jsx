@@ -99,7 +99,7 @@ const Wrapper = styled.section`
   @media (min-width: 1280px) {
     padding: 0;
     .section-center {
-      transform: translateY(5rem);
+      transform: translateY(4rem);
     }
   }
 `;
