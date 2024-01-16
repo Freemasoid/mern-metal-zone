@@ -25,7 +25,7 @@ const Wrapper = styled.div`
   }
 
   p {
-    max-width: 23rem;
+    max-width: 15rem;
   }
 
   .container {
@@ -56,8 +56,20 @@ const Wrapper = styled.div`
     justify-content: center;
     border-radius: var(--radius);
     cursor: pointer;
-
+    margin-left: 2rem;
     min-width: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    p {
+      max-width: 35rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    p {
+      max-width: 19rem;
+    }
   }
 `;
 

@@ -14,8 +14,9 @@ import Filters from "./Filters.jsx";
 import ProductList from "./ProductList.jsx";
 import Sort from "./Sort.jsx";
 import Stars from "./Stars.jsx";
-import CartContent from "./CarContent.jsx";
+import CartContent from "./CartContent.jsx";
 import PageHero from "./PageHero.jsx";
+
 export {
   FeaturedProducts,
   Navbar,
