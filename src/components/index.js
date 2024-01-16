@@ -14,6 +14,7 @@ import Filters from "./Filters.jsx";
 import ProductList from "./ProductList.jsx";
 import Sort from "./Sort.jsx";
 import Stars from "./Stars.jsx";
+import StripeCheckout from "./StripeCheckout.jsx";
 import CartContent from "./CartContent.jsx";
 import PageHero from "./PageHero.jsx";
 
@@ -36,4 +37,5 @@ export {
   Stars,
   CartContent,
   PageHero,
+  StripeCheckout,
 };
