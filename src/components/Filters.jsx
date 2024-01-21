@@ -69,7 +69,9 @@ const Filters = () => {
                       name="color"
                       onClick={updateFilters}
                       data-color="all"
-                      className={color === "all" ? "all-btn active" : "all-btn"}
+                      className={
+                        color === "all" ? "button all-btn active" : "button all-btn"
+                      }
                     >
                       all
                     </button>
@@ -80,7 +82,9 @@ const Filters = () => {
                     key={index}
                     name="color"
                     style={{ background: c }}
-                    className={color === c ? "color-btn active" : "color-btn"}
+                    className={
+                      color === c ? "button color-btn active" : "button color-btn"
+                    }
                     data-color={c}
                     onClick={updateFilters}
                   >
@@ -117,7 +121,7 @@ const Filters = () => {
             />
           </div>
         </form>
-        <button className="clear-btn" type="button" onClick={clearFilters}>
+        <button className="btn" type="button" onClick={clearFilters}>
           Clear Filters
         </button>
       </div>
@@ -145,7 +149,7 @@ const Wrapper = styled.section`
     text-transform: capitalize;
   }
 
-  button {
+  .button {
     display: block;
     margin: 0.25em 0;
     padding: 0.25rem 0;

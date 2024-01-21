@@ -66,6 +66,7 @@ const AddToCart = ({ product }) => {
 
 const Wrapper = styled.section`
   margin-top: 2rem;
+  height: 10rem;
   .colors {
     display: grid;
     grid-template-columns: 125px 1fr;
@@ -106,6 +107,7 @@ const Wrapper = styled.section`
 
   .btn {
     margin-top: 1rem;
+    display: block;
     width: 140px;
   }
 `;

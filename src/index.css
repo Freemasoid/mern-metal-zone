@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 /*
 =============== 
 Variables
@@ -58,8 +60,7 @@ Global Styles
   box-sizing: border-box;
 }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
-    Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: "Exo", sans-serif;
   background: var(--clr-white);
   color: var(--clr-grey-10);
   line-height: 1.5;
@@ -171,21 +172,30 @@ p {
   text-transform: uppercase;
   background: var(--clr-primary-5);
   color: var(--clr-white);
-  padding: 0.375rem 0.75rem;
+  padding: 0.75rem 0.85rem;
   letter-spacing: var(--spacing);
-  display: inline-block;
-  font-weight: 400;
-  transition: var(--transition);
   font-size: 0.875rem;
   cursor: pointer;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   border-radius: var(--radius);
-  border-color: transparent;
+  border: none;
+  text-align: center;
 }
 .btn:hover {
-  color: var(--clr-primary-1);
-  background: var(--clr-primary-7);
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
+    var(--clr-primary-2) 0 -3px 0 inset;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+  transition: box-shadow 0.15s, transform 0.15s;
+  touch-action: manipulation;
+  will-change: box-shadow, transform;
+  font-size: 0.9rem;
 }
+.btn:active {
+  box-shadow: var(--clr-primary-1) 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
 .title {
   text-align: center;
 }

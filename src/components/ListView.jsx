@@ -33,7 +33,6 @@ const Wrapper = styled.section`
   img {
     width: 100%;
     display: block;
-    width: 400px;
     height: 200px;
     object-fit: cover;
     border-radius: var(--radius);
@@ -52,8 +51,8 @@ const Wrapper = styled.section`
     color: var(--clr-grey-7);
   }
   .btn {
-    font-size: 0.65rem;
-    padding: 0.25rem 0.5rem;
+    font-size: 0.85rem;
+    padding: 0.55rem 1rem;
   }
   @media (min-width: 992px) {
     article {
@@ -62,11 +61,8 @@ const Wrapper = styled.section`
       column-gap: 2rem;
       align-items: center;
     }
-  }
-
-  @media (max-width: 450px) {
     img {
-      width: 300px;
+      width: 500px;
     }
   }
 `;

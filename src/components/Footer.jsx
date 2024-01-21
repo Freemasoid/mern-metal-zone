@@ -21,7 +21,7 @@ const Footer = () => {
           <p>Subscribe to our newsletter for the latest updates.</p>
           <form className="form">
             <input type="email" className="form-input" placeholder="Enter e-mail" />
-            <button className="submit-btn" type="button">
+            <button className="btn" type="button">
               Subscribe
             </button>
           </form>
@@ -118,28 +118,22 @@ const Wrapper = styled.footer`
     .form {
       width: 100%;
       max-width: 24rem;
-      display: flex;
-      flex-direction: column;
+      display: grid;
 
       .form-input {
         margin-bottom: 0.5rem;
-        height: 2rem;
+        padding: 0.75rem 0.85rem;
         border-radius: var(--radius);
         padding-left: 1rem;
         padding-right: 1rem;
         border: none;
       }
 
-      .submit-btn {
-        height: 2rem;
-        border-radius: var(--radius);
-        background-color: var(--clr-primary-5);
-        border: none;
-        color: var(--clr-white);
-        cursor: pointer;
+      .btn:hover {
+        box-shadow: none;
       }
-      .submit-btn:active {
-        box-shadow: var(--clr-primary-3) 0 3px 7px inset;
+      .btn:active {
+        box-shadow: var(--clr-primary-1) 0 3px 7px inset;
         transform: translateY(2px);
       }
     }

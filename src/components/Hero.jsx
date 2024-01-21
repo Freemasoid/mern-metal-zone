@@ -9,8 +9,8 @@ const Hero = () => {
     <Wrapper className="section-center">
       <article className="content">
         <h1>
-          be the boss <br />
-          of your metal zone
+          Be the BOSS <br />
+          of your Metal Zone
         </h1>
         <p>
           Dive into the riff-filled world of metal mayhem with our custom guitars!
@@ -34,15 +34,25 @@ const Wrapper = styled.section`
   min-height: 800px;
   display: grid;
   place-items: center;
+
+  .button-container {
+    height: 3rem;
+    width: 8rem;
+  }
+
   .img-container {
     display: none;
+  }
+
+  h1 {
+    text-transform: none;
   }
 
   p {
     line-height: 2;
     max-width: 45em;
     margin-bottom: 2rem;
-    color: var(--clr-grey-5);
+    color: var(--clr-grey-6);
     font-size: 1rem;
   }
   @media (min-width: 992px) {

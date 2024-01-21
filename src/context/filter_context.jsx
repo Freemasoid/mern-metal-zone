@@ -16,7 +16,7 @@ import { useProductsContext } from "./products_context.jsx";
 const initialState = {
   filtered_products: [],
   all_products: [],
-  grid_view: true,
+  grid_view: false,
   sort: "price-lowest",
   filters: {
     text: "",
