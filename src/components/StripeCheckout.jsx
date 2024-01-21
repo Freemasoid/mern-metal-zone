@@ -3,6 +3,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "./CheckoutForm";
 import styled from "styled-components";
+import { useCartContext } from "../context/cart_context.jsx";
 
 const stripePromise = loadStripe(
   "pk_test_51OW6Y4JvSKiTZuMZqiG9CscyjrY2y5XOrfzn7KWZEgyhH97mQE6fKkn1EmgJCEHMFtp9BwGPotLrzC9KAeu4zaLc00PwzbSqTK"
@@ -10,16 +11,14 @@ const stripePromise = loadStripe(
 
 const StripeCheckout = () => {
   const [clientSecret, setClientSecret] = useState("");
+  const { cart } = useCartContext();
 
   useEffect(() => {
-    fetch("/api/v1/orders", {
+    fetch("https://e-commerce-api-3xet.onrender.com/api/v1/orders", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({}),
+      body: JSON.stringify({ items: cart }),
     })
-      .then((response) => response.json())
+      .then((response) => console.log(response))
       .then((data) => setClientSecret(data.clientSecret));
   }, []);
 
