@@ -2,9 +2,13 @@
 
 ## Functionality:
 
-1. Stripe checkout + checkout page
-2. User product reviews (users will be able to add product reviews) + dynamic display number of product reviews + dynamic display of stars
-3. User profile
+1. Stripe Checkout
+   1. Convert MongoDB userDB based authentication to Auth0 at backend
+   2. Finish CheckoutPage
+2. User product reviews (users will be able to add product reviews)
+   1. User reviews component
+   2. dynamic display number of product reviews + dynamic display of stars
+3. User profile??
 4. Newsletter with Ethereal email ?? TBD
 
 ## Styling:
