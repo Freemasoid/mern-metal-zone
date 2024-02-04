@@ -9,7 +9,7 @@ import { useUserContext } from "../context/user_context.jsx";
 
 const Nav = () => {
   const { openSidebar } = useProductsContext();
-  const { myUser } = useUserContext();
+  const { user } = useUserContext();
 
   return (
     <NavContainer>
@@ -34,10 +34,15 @@ const Nav = () => {
             );
           })}
 
-          {myUser && (
-            <li>
-              <Link to="/checkout">Checkout</Link>
-            </li>
+          {user && (
+            <>
+              <li>
+                <Link to="/checkout">Checkout</Link>
+              </li>
+              <li>
+                <Link to="/profile">My Zone</Link>
+              </li>
+            </>
           )}
         </ul>
 
@@ -54,6 +59,8 @@ const NavContainer = styled.nav`
   justify-content: center;
 
   .nav-center {
+    position: sticky;
+    top: 0;
     width: 90vw;
     margin: 0 auto;
     max-width: var(--max-width);
@@ -85,7 +92,7 @@ const NavContainer = styled.nav`
     display: none;
   }
 
-  @media (min-width: 992px) {
+  @media (min-width: 1000px) {
     .nav-toggle {
       display: none;
     }

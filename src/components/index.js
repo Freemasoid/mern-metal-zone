@@ -1,6 +1,8 @@
 import FeaturedProducts from "./FeaturedProducts.jsx";
+import FormRow from "./FormRow.jsx";
 import Navbar from "./Navbar.jsx";
 import CartButtons from "./CartButtons.jsx";
+import CheckoutForm from "./CheckoutForm.jsx";
 import Footer from "./Footer.jsx";
 import Sidebar from "./Sidebar.jsx";
 import Hero from "./Hero.jsx";
@@ -14,12 +16,14 @@ import Filters from "./Filters.jsx";
 import ProductList from "./ProductList.jsx";
 import Sort from "./Sort.jsx";
 import Stars from "./Stars.jsx";
-import StripeCheckout from "./StripeCheckout.jsx";
 import CartContent from "./CartContent.jsx";
 import PageHero from "./PageHero.jsx";
+import SingleOrder from "./SingleOrder.jsx";
 
 export {
+  CheckoutForm,
   FeaturedProducts,
+  FormRow,
   Navbar,
   CartButtons,
   Footer,
@@ -37,5 +41,5 @@ export {
   Stars,
   CartContent,
   PageHero,
-  StripeCheckout,
+  SingleOrder,
 };

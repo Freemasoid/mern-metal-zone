@@ -6,7 +6,7 @@ import { useUserContext } from "../context/user_context.jsx";
 
 const CartTotals = () => {
   const { total_amount, shipping_fee } = useCartContext();
-  const { myUser, loginWithRedirect } = useUserContext();
+  const { user } = useUserContext();
 
   return (
     <Wrapper>
@@ -23,14 +23,14 @@ const CartTotals = () => {
             order total: <span>{formatPrice(total_amount + shipping_fee)}</span>
           </h4>
         </article>
-        {myUser ? (
+        {user ? (
           <Link to="/checkout" className="btn">
             proceed to checkout
           </Link>
         ) : (
-          <button type="button" className="btn" onClick={loginWithRedirect}>
+          <Link to="/login" type="button" className="btn">
             login
-          </button>
+          </Link>
         )}
       </div>
     </Wrapper>

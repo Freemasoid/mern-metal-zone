@@ -45,6 +45,12 @@ Variables
   --drop-shadow-red: 0 8px 10px -10px rgb(122, 0, 0);
   --max-width: 1170px;
   --fixed-width: 620px;
+
+  /* Form Shadows */
+  --shadow-1: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+  --shadow-2: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+  --shadow-3: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+  --shadow-4: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
 }
 /*
 =============== 
@@ -181,8 +187,7 @@ p {
   text-align: center;
 }
 .btn:hover {
-  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
-    var(--clr-primary-2) 0 -3px 0 inset;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px;
   box-sizing: border-box;
   overflow: hidden;
   position: relative;

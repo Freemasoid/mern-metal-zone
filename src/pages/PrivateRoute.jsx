@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 import { Navigate } from "react-router-dom";
-import { useAuth0 } from "@auth0/auth0-react";
+import { getUserFromLocalStorage } from "../utils/localStorage.js";
 
 const PrivateRoute = ({ children }) => {
-  const { user } = useAuth0();
+  const user = getUserFromLocalStorage();
 
   if (!user) {
     return <Navigate to="/" />;
