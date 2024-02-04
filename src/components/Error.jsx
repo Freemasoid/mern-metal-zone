@@ -4,7 +4,7 @@ const Error = () => {
   return (
     <Wrapper>
       <div className="section sections-center">
-        <h2>Bloody shame, mate, there was an error...</h2>
+        <h2>Seems there was an error. Try to reload.</h2>
       </div>
     </Wrapper>
   );

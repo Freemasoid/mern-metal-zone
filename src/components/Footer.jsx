@@ -77,6 +77,7 @@ const Wrapper = styled.footer`
   background-color: var(--clr-black);
 
   p {
+    font-size: 0.875rem;
     color: var(--clr-grey-3);
   }
 
@@ -102,7 +103,6 @@ const Wrapper = styled.footer`
     p {
       margin-top: 0.5rem;
       text-align: center;
-      font-size: 0.875rem;
       line-height: 1.25rem;
     }
   }
@@ -110,7 +110,6 @@ const Wrapper = styled.footer`
   .newsletter {
     p {
       font-size: 0.875rem;
-      line-height: 1.25rem;
       margin-bottom: 1rem;
       text-align: center;
     }
