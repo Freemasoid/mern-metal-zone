@@ -1,25 +1,32 @@
-# To-do:
+# MetalGuitars - Custom Electric Guitars for Metal Enthusiasts
 
-## Functionality:
+## Overview
 
-1. Stripe Checkout
-   1. Convert MongoDB userDB based authentication to Auth0 at backend
-   2. Finish CheckoutPage
-2. User product reviews (users will be able to add product reviews)
-   1. User reviews component
-   2. dynamic display number of product reviews + dynamic display of stars
-3. User profile??
-4. Newsletter with Ethereal email ?? TBD
+MetalGuitars is an e-commerce web application tailored for metal music enthusiasts who crave custom-made electric guitars. The project is built using the MERN stack (MongoDB, Express.js, React.js, Node.js) and hosted on Render.
 
-## Styling:
+### Features
 
-1. ~~Update footer~~
-2. Update drop out menu for smaller screens
-3. Fix services grid layout
-4. Move logo as main image for smaller screens to fix emptiness?
+- **Product Catalog**: Browse a diverse range of custom electric guitars specifically designed for metal music.
+- **User Authentication**: Secure user authentication ensures a personalized shopping experience.
 
-## Components
+- **Shopping Cart**: Add guitars to your cart, manage quantities, and prepare for the ultimate checkout experience.
 
-1. ~~Redo contact component on main page~~
-2. ~~Fix Hero component being overlapped by featured products~~
-3. ~~Finish Help & FAQ~~
+- **Responsive Design**: The user interface is designed to be responsive, providing an optimal viewing experience across various devices.
+
+## Technologies Used
+
+- **Frontend**: React.js and styled-components for a dynamic and interactive user interface.
+
+- **Backend**: Node.js and Express.js to handle server-side logic and API interactions. You can find api code in my repo [node-e-commerce-api](https://github.com/Freemasoid/node-e-commerce-api)
+
+- **Database**: MongoDB for efficient and scalable data storage.
+
+- **Hosting**: The server side is hosted on Render. Front-end is hosted on Netlify.
+
+## Current State
+
+In its current state, MetalGuitars provides full functionality for browsing the product catalog, adding items to the shopping cart, and managing the cart. However, the final checkout and user profile display functionalities are still under development.
+
+## Contributing
+
+Contributions are welcome! If you find any issues or have ideas for improvement, please feel free to open an issue or submit a pull request.
