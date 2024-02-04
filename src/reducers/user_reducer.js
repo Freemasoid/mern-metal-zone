@@ -12,6 +12,7 @@ import {
 } from "../actions.js";
 import {
   addUserToLocalStorage,
+  removeCartFromLocalStorage,
   removeUserFromLocalStorage,
 } from "../utils/localStorage.js";
 import { toast } from "react-toastify";
@@ -47,6 +48,7 @@ const user_reducer = (state, action) => {
 
   if (action.type === LOGOUT_USER) {
     removeUserFromLocalStorage();
+    removeCartFromLocalStorage();
     if (action.payload) {
       toast.success(action.payload);
     }

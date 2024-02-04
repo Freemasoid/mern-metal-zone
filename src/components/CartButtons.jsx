@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { useProductsContext } from "../context/products_context.jsx";
 import { useCartContext } from "../context/cart_context.jsx";
 import { useUserContext } from "../context/user_context.jsx";
+import { removeCartFromLocalStorage } from "../utils/localStorage.js";
 
 const CartButtons = () => {
   const { closeSidebar } = useProductsContext();
@@ -21,8 +22,8 @@ const CartButtons = () => {
       </Link>
 
       {user ? (
-        <Link
-          to="/"
+        <a
+          href="/"
           type="button"
           className="auth-btn"
           onClick={() => {
@@ -30,7 +31,7 @@ const CartButtons = () => {
           }}
         >
           Logout <FaUserMinus />
-        </Link>
+        </a>
       ) : (
         <Link to="/login" type="button" className="auth-btn" onClick={closeSidebar}>
           Login <FaUserPlus />

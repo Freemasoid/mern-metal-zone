@@ -5,6 +5,9 @@ export const addUserToLocalStorage = (user) => {
 export const removeUserFromLocalStorage = () => {
   localStorage.removeItem("user");
 };
+export const removeCartFromLocalStorage = () => {
+  localStorage.setItem("cart", []);
+};
 
 export const getUserFromLocalStorage = () => {
   const result = localStorage.getItem("user");
