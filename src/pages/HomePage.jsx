@@ -3,11 +3,11 @@ import Modal from "../components/PopupModal.jsx";
 import { useEffect, useState } from "react";
 const HomePage = () => {
   const [isOpen, setIsOpen] = useState(
-    JSON.parse(localStorage.getItem("popupStatus")) ?? true
+    JSON.parse(sessionStorage.getItem("popupStatus")) ?? true
   );
 
   useEffect(() => {
-    localStorage.setItem("popupStatus", JSON.stringify(isOpen));
+    sessionStorage.setItem("popupStatus", JSON.stringify(isOpen));
   }, [isOpen]);
 
   return (
