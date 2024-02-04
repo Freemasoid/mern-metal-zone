@@ -27,7 +27,7 @@ const LoginPage = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     const { name, lastName, email, password, isMember } = values;
-    if (!email || !password || (!isMember && !name) || !lastName) {
+    if (!email || !password || (!isMember && (!name || !lastName))) {
       toast.error("Please fill out all fields");
       return;
     }
