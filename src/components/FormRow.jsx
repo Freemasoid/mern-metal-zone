@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-const FormRow = ({ type, name, value, handleChange, labelText }) => {
+const FormRow = ({ type, name, value, handleChange, labelText, pattern }) => {
   let placeholderText;
 
   switch (name) {
@@ -31,6 +31,7 @@ const FormRow = ({ type, name, value, handleChange, labelText }) => {
         onChange={handleChange}
         className="form-input"
         placeholder={placeholderText}
+        pattern={pattern}
       />
     </div>
   );

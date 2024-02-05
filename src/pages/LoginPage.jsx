@@ -7,7 +7,7 @@ import { useUserContext } from "../context/user_context.jsx";
 
 const initialState = {
   name: "",
-  lastName: "",
+  surname: "",
   email: "",
   password: "",
   isMember: true,
@@ -26,8 +26,8 @@ const LoginPage = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    const { name, lastName, email, password, isMember } = values;
-    if (!email || !password || (!isMember && (!name || !lastName))) {
+    const { name, surname, email, password, isMember } = values;
+    if (!email || !password || (!isMember && (!name || !surname))) {
       toast.error("Please fill out all fields");
       return;
     }
@@ -37,7 +37,7 @@ const LoginPage = () => {
         loginUser({ email: email, password: password });
         return;
       }
-    registerUser({ name, lastName, email, password });
+    registerUser({ name, surname, email, password });
   };
 
   const toggleMember = () => {
@@ -72,8 +72,8 @@ const LoginPage = () => {
             />
             <FormRow
               type="text"
-              name="lastName"
-              value={values.lastName}
+              name="surname"
+              value={values.surname}
               handleChange={handleChange}
             />
           </>
