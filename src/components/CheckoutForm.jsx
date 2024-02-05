@@ -1,24 +1,25 @@
 import styled from "styled-components";
 import FormRow from "./FormRow.jsx";
-import { useUserContext } from "../context/user_context.jsx";
-import { useState } from "react";
-import { Link } from "react-router-dom";
 import { useCartContext } from "../context/cart_context.jsx";
+import { useOrderContext } from "../context/order_context.jsx";
+import { useState } from "react";
 import { formatPrice } from "../utils/helpers.js";
+import { getOrderFromLocalStorage } from "../utils/localStorage.js";
 
 const initialState = {
   name: "",
-  lastName: "",
-  location: "",
+  surname: "",
+  address: "",
   cardNumber: "",
-  expiryDate: "",
-  cvv: "",
+  city: "",
+  zipCode: "",
+  country: "",
 };
 
 const CheckoutForm = () => {
   const [values, setValues] = useState(initialState);
-  const { user } = useUserContext();
   const { total_amount, shipping_fee } = useCartContext();
+  const { createOrder, order_loading: isLoading } = useOrderContext();
 
   const handleChange = (e) => {
     const name = e.target.name;
@@ -26,22 +27,28 @@ const CheckoutForm = () => {
     setValues({ ...values, [name]: value });
   };
 
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const cartItems = getOrderFromLocalStorage();
+    createOrder(cartItems);
+  };
+
   return (
     <Wrapper>
-      <div className="form shipping-center">
+      <form className="form shipping-center">
         <div className="shipping-details">
           <h1>Shipping Address</h1>
           <div className="name">
             <FormRow
               type="text"
               name="name"
-              value={user.name}
+              value={values.name}
               handleChange={handleChange}
             />
             <FormRow
               type="text"
-              name="last name"
-              value={user.lastName}
+              name="surname"
+              value={values.surname}
               handleChange={handleChange}
             />
           </div>
@@ -49,7 +56,7 @@ const CheckoutForm = () => {
           <FormRow
             type="text"
             name="address"
-            value="address"
+            value={values.address}
             handleChange={handleChange}
           />
 
@@ -57,92 +64,38 @@ const CheckoutForm = () => {
             <FormRow
               type="text"
               name="city"
-              value={user.location}
+              value={values.city}
               handleChange={handleChange}
             />
             <FormRow
               type="text"
               name="country"
-              value="country"
+              value={values.country}
               handleChange={handleChange}
             />
           </div>
 
           <FormRow
             type="text"
-            name="zip code"
-            value="zip code"
+            labelText="Zip Code"
+            name="zipCode"
+            value={values.zipCode}
             handleChange={handleChange}
+            pattern="[0-9]+"
           />
         </div>
-        <hr />
-        <div className="billing-address">
-          <h1>Billing Address</h1>
-          <div className="billing-details">
-            <div className="name">
-              <FormRow
-                type="text"
-                name="name"
-                value={user.name}
-                handleChange={handleChange}
-              />
-              <FormRow
-                type="text"
-                name="last name"
-                value={user.lastName}
-                handleChange={handleChange}
-              />
-            </div>
-
-            <FormRow
-              type="text"
-              name="address"
-              value="address"
-              handleChange={handleChange}
-            />
-
-            <div className="location">
-              <FormRow
-                type="text"
-                name="city"
-                value={user.location}
-                handleChange={handleChange}
-              />
-              <FormRow
-                type="text"
-                name="country"
-                value="country"
-                handleChange={handleChange}
-              />
-            </div>
-            <FormRow
-              type="text"
-              name="zip code"
-              value="zip code"
-              handleChange={handleChange}
-            />
-          </div>
-        </div>
-      </div>
-      <div className="form payment-center">
+      </form>
+      <form className="form payment-center" onSubmit={onSubmit}>
         <div className="payment-details">
           <h1>Payment Details</h1>
           <FormRow
-            type="number"
-            name="card number"
-            value="card number"
+            type="text"
+            labelText="Card Number"
+            name="cardNumber"
+            value={values.cardNumber}
             handleChange={handleChange}
+            pattern="[0-9]+"
           />
-
-          <div className="card-details">
-            <FormRow
-              type="date"
-              name="expiry date"
-              value="expiry date"
-              handleChange={handleChange}
-            />
-            <FormRow type="number" name="cvv" value="cvv" handleChange={handleChange} />
-          </div>
         </div>
         <hr />
         <div className="summary">
@@ -157,11 +110,11 @@ const CheckoutForm = () => {
               order total: <span>{formatPrice(total_amount + shipping_fee)}</span>
             </h4>
           </article>
-          <button type="button" className="btn">
-            Place order
+          <button type="submit" className="btn" disabled={isLoading}>
+            {isLoading ? "Loading..." : "Place order"}
           </button>
         </div>
-      </div>
+      </form>
     </Wrapper>
   );
 };

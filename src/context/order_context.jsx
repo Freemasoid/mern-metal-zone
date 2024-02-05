@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-import { createContext, useContext, useReducer } from "react";
 import {
   GET_ALL_ORDERS_BEGIN,
   GET_ALL_ORDERS_SUCCESS,
@@ -14,16 +13,17 @@ import {
   GET_USER_ORDERS_ERROR,
   GET_USER_ORDERS_SUCCESS,
 } from "../actions.js";
+import { createContext, useContext, useReducer } from "react";
 import reducer from "../reducers/order_reducer.js";
-import { getOrderFromLocalStorage } from "../utils/localStorage.js";
 import customFetch from "../utils/axios.js";
 
 const initialState = {
   order_loading: false,
-  order: getOrderFromLocalStorage(),
+  order: [],
   order_error: false,
   orders: [],
   single_order: [],
+  user_orders: [],
 };
 
 const OrderContext = createContext();
@@ -45,7 +45,7 @@ export const OrderProvider = ({ children }) => {
   const getSingleOrder = async () => {
     dispatch({ type: GET_SINGLE_ORDER_BEGIN });
     try {
-      const resp = await customFetch.post("/orders/:id");
+      const resp = await customFetch.get("/orders");
       const singleOrder = resp.data;
       dispatch({ type: GET_SINGLE_ORDER_SUCCESS, payload: singleOrder });
     } catch (error) {
@@ -53,12 +53,12 @@ export const OrderProvider = ({ children }) => {
     }
   };
 
-  const createOrder = async () => {
+  const createOrder = async (order) => {
     dispatch({ type: CREATE_ORDER_BEGIN });
     try {
-      const resp = await customFetch.post("/orders");
-      const newOrder = resp.data;
-      dispatch({ type: CREATE_ORDER_SUCCESS, payload: newOrder });
+      const resp = await customFetch.post("/orders", order);
+      order = resp.data;
+      dispatch({ type: CREATE_ORDER_SUCCESS, payload: order });
     } catch (error) {
       dispatch({ type: CREATE_ORDER_ERROR });
     }
@@ -90,6 +90,7 @@ export const OrderProvider = ({ children }) => {
   );
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useOrderContext = () => {
   return useContext(OrderContext);
 };
