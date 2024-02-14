@@ -69,7 +69,7 @@ export const OrderProvider = ({ children }) => {
     try {
       const resp = await customFetch.get("/orders/showAllMyOrders");
       const userOrders = resp.data;
-      dispatch({ type: GET_USER_ORDERS_SUCCESS, payload: userOrders });
+      dispatch({ type: GET_USER_ORDERS_SUCCESS, payload: userOrders.orders });
     } catch (error) {
       dispatch({ type: GET_USER_ORDERS_ERROR });
     }

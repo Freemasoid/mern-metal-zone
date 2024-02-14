@@ -1,9 +1,31 @@
 import styled from "styled-components";
 import { useUserContext } from "../context/user_context.jsx";
 import { PageHero, SingleOrder } from "../components";
+import { useOrderContext } from "../context/order_context.jsx";
+import { useEffect } from "react";
+import { Loading, Error } from "../components";
 
 const ProfilePage = () => {
   const { user } = useUserContext();
+  const {
+    user_orders,
+    getCurrentUserOrders,
+    order_loading: loading,
+    order_error: error,
+  } = useOrderContext();
+
+  useEffect(() => {
+    getCurrentUserOrders();
+  }, []);
+  console.log(user_orders);
+
+  if (loading) {
+    return <Loading />;
+  }
+  if (error) {
+    return <Error />;
+  }
+
   return (
     <main>
       <PageHero title="my zone" />
@@ -30,7 +52,14 @@ const ProfilePage = () => {
               <h1>Past Orders</h1>
             </div>
             <div className="order-container">
-              <SingleOrder />
+              {user_orders.map((order) => {
+                return (
+                  <>
+                    <SingleOrder key={order._id} {...order} />
+                    <hr />
+                  </>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -41,6 +70,11 @@ const ProfilePage = () => {
 export default ProfilePage;
 
 const Wrapper = styled.section`
+  hr {
+    width: 80%;
+    border-top: 1px solid var(--clr-grey-2);
+  }
+
   .profile-info {
     display: flex;
     width: 90vw;

@@ -1,25 +1,19 @@
+/* eslint-disable react/prop-types */
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { formatPrice } from "../utils/helpers.js";
 
-const SingleOrder = (props) => {
-  const { image, name, color, price, amount } = props;
-
+const SingleOrder = ({ createdAt, status, total, _id: id }) => {
   return (
     <Wrapper>
       <div className="title">
-        <img src={image} alt={name} />
+        <p>#{id.slice(-5)}</p>
         <div>
-          <h5 className="name">{name}</h5>
-          <p className="color">
-            color: <span style={{ background: color }}></span>
-          </p>
-          <h5 className="price-small">{formatPrice(price)}</h5>
+          <p className="date">placed on: {createdAt.slice(0, 10)}</p>
+          <h5 className="status">{status}</h5>
         </div>
       </div>
-
-      <h5 className="price">{formatPrice(price)}</h5>
-      <h5 className="subtotal">{formatPrice(price * amount)}</h5>
+      <h5 className="price-small">{formatPrice(total)}</h5>
       <Link to="" className="btn">
         Details
       </Link>
@@ -29,27 +23,14 @@ const SingleOrder = (props) => {
 export default SingleOrder;
 
 const Wrapper = styled.div`
-  .subtotal {
-    display: none;
-  }
-  .price {
-    display: none;
-  }
-  display: grid;
-  grid-template-columns: 200px auto auto;
-  grid-template-rows: 75px;
-  gap: 3rem 1rem;
+  display: flex;
+  flex-direction: column;
   justify-items: center;
-  margin-bottom: 3rem;
   align-items: center;
-  .title {
-    grid-template-rows: 75px;
-    display: grid;
-    grid-template-columns: 75px 125px;
-    align-items: center;
-    text-align: left;
-    gap: 1rem;
-  }
+  justify-content: space-around;
+  gap: 1.5rem;
+  margin: 1rem auto;
+
   img {
     width: 100%;
     height: 100%;
@@ -58,11 +39,11 @@ const Wrapper = styled.div`
     object-fit: cover;
   }
   h5 {
-    font-size: 0.75rem;
+    font-size: 1rem;
     margin-bottom: 0;
   }
 
-  .color {
+  .date {
     color: var(--clr-grey-5);
     font-size: 0.75rem;
     letter-spacing: var(--spacing);
@@ -71,14 +52,6 @@ const Wrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    span {
-      display: inline-block;
-      width: 0.5rem;
-      height: 0.5rem;
-      background: red;
-      margin-left: 0.5rem;
-      border-radius: var(--radius);
-    }
   }
   .price-small {
     color: var(--clr-primary-5);
@@ -94,22 +67,16 @@ const Wrapper = styled.div`
       font-size: 1rem;
     }
   }
-  .remove-btn {
-    color: var(--clr-white);
-    background: transparent;
-    border: transparent;
-    letter-spacing: var(--spacing);
-    background: var(--clr-primary-5);
-    width: 1.5rem;
-    height: 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: var(--radius);
-    font-size: 0.75rem;
-    cursor: pointer;
+
+  .status {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--clr-primary-5);
+    font-weight: 400;
   }
+
   @media (min-width: 776px) {
+    flex-direction: row;
     .subtotal {
       display: block;
       margin-bottom: 0;
@@ -117,10 +84,8 @@ const Wrapper = styled.div`
       font-weight: 400;
       font-size: 1rem;
     }
-    .price-small {
-      display: none;
-    }
-    .price {
+
+    .status {
       display: block;
       font-size: 1rem;
       color: var(--clr-primary-5);
@@ -129,13 +94,11 @@ const Wrapper = styled.div`
     .name {
       font-size: 0.85rem;
     }
-    .color {
-      font-size: 0.85rem;
-      span {
-        width: 0.75rem;
-        height: 0.75rem;
-      }
+
+    p {
+      margin: 0;
     }
+
     grid-template-columns: 1fr 1fr 1fr 1fr auto;
     align-items: center;
     grid-template-rows: 75px;
