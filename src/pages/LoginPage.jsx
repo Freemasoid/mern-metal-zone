@@ -53,7 +53,7 @@ const LoginPage = () => {
   }, [user, navigate]);
 
   return (
-    <Wrapper className="page-100">
+    <Wrapper>
       <form
         className={values.isMember ? "form" : "form form-register"}
         onSubmit={onSubmit}
