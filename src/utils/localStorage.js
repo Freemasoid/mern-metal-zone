@@ -14,9 +14,3 @@ export const getUserFromLocalStorage = () => {
   const user = result ? JSON.parse(result) : null;
   return user;
 };
-
-export const getOrderFromLocalStorage = () => {
-  const result = localStorage.getItem("cart");
-  const order = result ? JSON.parse(result) : null;
-  return order;
-};

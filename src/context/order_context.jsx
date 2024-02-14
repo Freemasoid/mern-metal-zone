@@ -19,7 +19,7 @@ import customFetch from "../utils/axios.js";
 
 const initialState = {
   order_loading: false,
-  order: [],
+  order: {},
   order_error: false,
   orders: [],
   single_order: [],
