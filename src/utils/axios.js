@@ -3,6 +3,7 @@ import { getUserFromLocalStorage } from "./localStorage.js";
 
 const customFetch = axios.create({
   baseURL: "https://e-commerce-api-3xet.onrender.com/api/v1",
+  withCredentials: true,
 });
 
 customFetch.interceptors.request.use(

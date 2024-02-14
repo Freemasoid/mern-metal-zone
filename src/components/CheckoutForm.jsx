@@ -2,9 +2,9 @@ import styled from "styled-components";
 import FormRow from "./FormRow.jsx";
 import { useCartContext } from "../context/cart_context.jsx";
 import { useOrderContext } from "../context/order_context.jsx";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { formatPrice } from "../utils/helpers.js";
-import { getOrderFromLocalStorage } from "../utils/localStorage.js";
+import { useNavigate } from "react-router-dom";
 
 const initialState = {
   name: "",
@@ -20,17 +20,12 @@ const CheckoutForm = () => {
   const [values, setValues] = useState(initialState);
   const { total_amount, shipping_fee } = useCartContext();
   const { createOrder, order_loading: isLoading } = useOrderContext();
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
     setValues({ ...values, [name]: value });
-  };
-
-  const onSubmit = (e) => {
-    e.preventDefault();
-    const cartItems = getOrderFromLocalStorage();
-    createOrder(cartItems);
   };
 
   return (
@@ -85,7 +80,7 @@ const CheckoutForm = () => {
           />
         </div>
       </form>
-      <form className="form payment-center" onSubmit={onSubmit}>
+      <form className="form payment-center">
         <div className="payment-details">
           <h1>Payment Details</h1>
           <FormRow
@@ -110,7 +105,17 @@ const CheckoutForm = () => {
               order total: <span>{formatPrice(total_amount + shipping_fee)}</span>
             </h4>
           </article>
-          <button type="submit" className="btn" disabled={isLoading}>
+          <button
+            type="button"
+            className="btn"
+            disabled={isLoading}
+            onClick={() => {
+              createOrder({ cartItems: JSON.parse(localStorage.getItem("cart")) });
+              setTimeout(() => {
+                navigate("/");
+              }, 3000);
+            }}
+          >
             {isLoading ? "Loading..." : "Place order"}
           </button>
         </div>

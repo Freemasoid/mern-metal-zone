@@ -14,7 +14,6 @@ import {
 } from "../actions.js";
 
 import { toast } from "react-toastify";
-import { getOrderFromLocalStorage } from "../utils/localStorage.js";
 
 const order_reducer = (state, action) => {
   if (action.type === GET_ALL_ORDERS_BEGIN) {
@@ -42,9 +41,10 @@ const order_reducer = (state, action) => {
     return { ...state, order_loading: true };
   }
   if (action.type === CREATE_ORDER_SUCCESS) {
-    const order = getOrderFromLocalStorage();
+    const { cartItems } = action.payload;
     toast.success("Order placed!");
-    return { ...state, order_loading: false, order_error: false, order: order };
+    localStorage.clear("cart");
+    return { ...state, order_loading: false, order_error: false, order: cartItems };
   }
   if (action.type === CREATE_ORDER_ERROR) {
     return { ...state, order_loading: false, order_error: true };
