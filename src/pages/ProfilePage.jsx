@@ -105,4 +105,30 @@ const Wrapper = styled.section`
     height: 100%;
     overflow: auto;
   }
+
+  @media (max-width: 700px) {
+    h1 {
+      transition: var(--transition);
+      font-size: 1.5rem;
+    }
+
+    .profile-info {
+      display: flex;
+      flex-direction: column;
+      max-height: 30rem;
+    }
+    .user-details {
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 850px) {
+    h1 {
+      overflow: visible;
+
+      text-overflow: clip;
+      transition: var(--transition);
+      font-size: 2rem;
+    }
+  }
 `;
