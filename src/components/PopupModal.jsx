@@ -15,10 +15,17 @@ const Modal = ({ toggleClose }) => {
           <div className="underline"></div>
 
           <div className="modalContent">
-            <br />
-            Please note that back-end is hosted on a free service provider so it needs a
-            little bit of time to start up, which means -{" "}
-            <strong>if you don't see images or products just wait a bit</strong>.
+            <p>
+              Please note that back-end is hosted on a free service provider so it needs a
+              little bit of time to start up, which means -{" "}
+              <strong>if you don't see images or products just wait a bit</strong>.
+            </p>
+            <p>
+              User profile and order placement is not available to Apple iPhone and
+              desktop Safari users, due to enabled by default "Prevent cross-site
+              tracking" function on their devices. This is an unfortunate limitation of
+              free hosting service.
+            </p>
           </div>
         </div>
       </div>
@@ -47,7 +54,7 @@ const Wrapper = styled.section`
 
   .modal {
     width: 350px;
-    height: 220px;
+    height: 340px;
     background: var(--clr-white);
     color: var(--clr-white);
     z-index: 10;
