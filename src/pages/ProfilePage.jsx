@@ -138,6 +138,9 @@ const Wrapper = styled.section`
     width: 100%;
     height: 100%;
     overflow: auto;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
   }
 
   @media (max-width: 700px) {
