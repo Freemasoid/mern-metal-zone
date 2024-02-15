@@ -16,7 +16,6 @@ const Modal = ({ toggleClose }) => {
 
           <div className="modalContent">
             <br />
-            <strong>This WebApp is currently in development.</strong> <br /> <br />
             Please note that back-end is hosted on a free service provider so it needs a
             little bit of time to start up, which means -{" "}
             <strong>if you don't see images or products just wait a bit</strong>.
@@ -48,7 +47,7 @@ const Wrapper = styled.section`
 
   .modal {
     width: 350px;
-    height: 270px;
+    height: 220px;
     background: var(--clr-white);
     color: var(--clr-white);
     z-index: 10;
