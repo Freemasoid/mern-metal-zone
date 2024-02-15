@@ -2,7 +2,7 @@ import styled from "styled-components";
 import FormRow from "./FormRow.jsx";
 import { useCartContext } from "../context/cart_context.jsx";
 import { useOrderContext } from "../context/order_context.jsx";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { formatPrice } from "../utils/helpers.js";
 import { useNavigate } from "react-router-dom";
 

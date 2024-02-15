@@ -1,9 +1,9 @@
 import { FaShoppingCart, FaUserMinus, FaUserPlus } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { useProductsContext } from "../context/products_context.jsx";
-import { useCartContext } from "../context/cart_context.jsx";
-import { useUserContext } from "../context/user_context.jsx";
+import { useProductsContext } from "../../context/products_context.jsx";
+import { useCartContext } from "../../context/cart_context.jsx";
+import { useUserContext } from "../../context/user_context.jsx";
 
 const CartButtons = () => {
   const { closeSidebar } = useProductsContext();

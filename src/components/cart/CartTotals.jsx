@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { useCartContext } from "../context/cart_context";
-import { formatPrice } from "../utils/helpers";
+import { useCartContext } from "../../context/cart_context.jsx";
+import { formatPrice } from "../../utils/helpers.js";
 import { Link } from "react-router-dom";
-import { useUserContext } from "../context/user_context.jsx";
+import { useUserContext } from "../../context/user_context.jsx";
 
 const CartTotals = () => {
   const { total_amount, shipping_fee } = useCartContext();

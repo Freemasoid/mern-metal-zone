@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import styled from "styled-components";
-import Product from "./Product.jsx";
-import { formatPrice } from "../utils/helpers.js";
+import Product from "../Product.jsx";
+import { formatPrice } from "../../utils/helpers.js";
 
 const GridView = ({ products }) => {
   return (

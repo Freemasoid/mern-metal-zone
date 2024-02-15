@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useCartContext } from "../context/cart_context";
+import { useCartContext } from "../../context/cart_context";
 import { Link } from "react-router-dom";
 import CartColumns from "./CartColumns";
 import CartItem from "./CartItem";
