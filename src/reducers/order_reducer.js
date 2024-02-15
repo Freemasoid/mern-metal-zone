@@ -43,7 +43,7 @@ const order_reducer = (state, action) => {
   if (action.type === CREATE_ORDER_SUCCESS) {
     const { cartItems } = action.payload;
     toast.success("Order placed!");
-    localStorage.clear("cart");
+    localStorage.removeItem("cart");
     return { ...state, order_loading: false, order_error: false, order: cartItems };
   }
   if (action.type === CREATE_ORDER_ERROR) {
