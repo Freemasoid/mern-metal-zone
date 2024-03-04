@@ -194,7 +194,6 @@ p {
   transition: box-shadow 0.15s, transform 0.15s;
   touch-action: manipulation;
   will-change: box-shadow, transform;
-  font-size: 0.9rem;
 }
 .btn:active {
   box-shadow: var(--clr-primary-1) 0 3px 7px inset;
