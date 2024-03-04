@@ -1,9 +1,13 @@
 /* eslint-disable react/prop-types */
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 import { formatPrice } from "../utils/helpers.js";
+import { useState } from "react";
+import DetailsModal from "./DetailsModal.jsx";
 
-const SingleOrder = ({ createdAt, status, total, _id: id }) => {
+const SingleOrder = (order) => {
+  const { createdAt, status, total, _id: id } = order;
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <Wrapper>
       <div className="title">
@@ -13,10 +17,16 @@ const SingleOrder = ({ createdAt, status, total, _id: id }) => {
           <h5 className="status">{status}</h5>
         </div>
       </div>
+
       <h5 className="price-small">{formatPrice(total)}</h5>
-      <Link to="" className="btn">
+
+      <button className="btn" onClick={() => setIsOpen(true)}>
         Details
-      </Link>
+      </button>
+
+      {isOpen ? (
+        <DetailsModal details={order} toggleClose={() => setIsOpen(false)} />
+      ) : null}
     </Wrapper>
   );
 };
@@ -30,6 +40,8 @@ const Wrapper = styled.div`
   justify-content: space-around;
   gap: 1.5rem;
   margin: 1rem auto;
+  padding: 0.7rem;
+  border-bottom: 0.01rem solid var(--clr-grey-4);
 
   img {
     width: 100%;
