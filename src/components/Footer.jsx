@@ -30,15 +30,8 @@ const Footer = () => {
         <div className="box feedback">
           <h3>Feedback</h3>
           <p>
-            You can send us Feedback via our{" "}
-            <Link className="link" to="">
-              Contact Form
-            </Link>
-            ,{" "}
-            <a className="link" href="#">
-              Discord
-            </a>{" "}
-            or support@metalzone.com. If you are happy with our Service you can leave a
+            You can send us Feedback via <a className="link">Discord</a> or
+            support@metalzone.com. If you are happy with our Service you can leave a
             Review on{" "}
             <a className="link" href="https://www.trustpilot.com/">
               Trustpilot
@@ -75,6 +68,10 @@ const Wrapper = styled.footer`
   padding-top: 3rem;
   padding-bottom: 3rem;
   background-color: var(--clr-black);
+
+  a {
+    cursor: pointer;
+  }
 
   p {
     font-size: 0.875rem;
