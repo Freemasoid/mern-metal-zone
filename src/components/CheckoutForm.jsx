@@ -18,7 +18,7 @@ const initialState = {
 
 const CheckoutForm = () => {
   const [values, setValues] = useState(initialState);
-  const { total_amount, shipping_fee } = useCartContext();
+  const { total_amount, shipping_fee, clearCart } = useCartContext();
   const { createOrder, order_loading: isLoading } = useOrderContext();
   const navigate = useNavigate();
 
@@ -110,6 +110,7 @@ const CheckoutForm = () => {
             className="btn"
             disabled={isLoading}
             onClick={() => {
+              clearCart();
               createOrder({ cartItems: JSON.parse(localStorage.getItem("cart")) });
               setTimeout(() => {
                 navigate("/");
