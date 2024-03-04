@@ -212,7 +212,7 @@ p {
   border-radius: 1rem;
 }
 .page-100 {
-  min-height: calc(100vh - 10rem);
+  min-height: calc(100vh - 20rem);
   padding: 8rem 0;
 }
 .page {

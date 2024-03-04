@@ -30,7 +30,7 @@ const ProfilePage = () => {
     return (
       <main>
         <PageHero title="my zone" />
-        <Wrapper>
+        <Wrapper className="page-100">
           <div className="profile-center">
             <div className="profile-info">
               <div className="profile-img">

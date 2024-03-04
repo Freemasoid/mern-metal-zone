@@ -6,7 +6,7 @@ const AboutPage = () => {
   return (
     <main>
       <PageHero title="Backstage" />
-      <Wrapper className="section section-center">
+      <Wrapper className="page-100 section-center">
         <img src={aboutImg} alt="nice guitar" />
         <article>
           <div className="title">
@@ -31,6 +31,8 @@ const AboutPage = () => {
 const Wrapper = styled.section`
   display: grid;
   gap: 4rem;
+  align-items: center;
+
   img {
     width: 100%;
     display: block;
