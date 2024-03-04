@@ -21,7 +21,7 @@ const Modal = ({ toggleClose }) => {
               <strong>if you don't see images or products just wait a bit</strong>.
             </p>
             <p>
-              User profile and order placement is not available to Apple iPhone and
+              User profile and order placement are not available to Apple iPhone and
               desktop Safari users, due to enabled by default "Prevent cross-site
               tracking" function on their devices. This is an unfortunate limitation of
               free hosting service.
