@@ -4,6 +4,7 @@ import { PageHero, SingleOrder } from "../components";
 import { useOrderContext } from "../context/order_context.jsx";
 import { useEffect } from "react";
 import { Loading, Error } from "../components";
+import { Link } from "react-router-dom";
 
 const ProfilePage = () => {
   const { user } = useUserContext();
@@ -17,13 +18,55 @@ const ProfilePage = () => {
   useEffect(() => {
     getCurrentUserOrders();
   }, []);
-  console.log(user_orders);
 
   if (loading) {
     return <Loading />;
   }
   if (error) {
     return <Error />;
+  }
+
+  if (user_orders.length < 1) {
+    return (
+      <main>
+        <PageHero title="my zone" />
+        <Wrapper>
+          <div className="profile-center">
+            <div className="profile-info">
+              <div className="profile-img">
+                <img src="" alt="profile image" />
+              </div>
+
+              <div className="user-details">
+                <h1>
+                  {user.name} {user.lastName}
+                </h1>
+                {user.role === "admin" ? <h5>Admin</h5> : <h5>Metalhead</h5>}
+                <p>{user.email}</p>
+                <p>{user.location}</p>
+              </div>
+
+              <div className="btn-container">
+                <button className="btn">Edit</button>
+              </div>
+            </div>
+
+            <div className="order-info">
+              <h1>Past Orders</h1>
+
+              <div className="order-container-empty">
+                <h2>Your don't have any orders yet!</h2>
+                <p>Discover your next musical companion!</p>
+
+                <Link to="/products" className="btn">
+                  take me to the store!
+                </Link>
+              </div>
+            </div>
+          </div>
+        </Wrapper>
+      </main>
+    );
   }
 
   return (
@@ -35,6 +78,7 @@ const ProfilePage = () => {
             <div className="profile-img">
               <img src="" alt="profile image" />
             </div>
+
             <div className="user-details">
               <h1>
                 {user.name} {user.lastName}
@@ -43,22 +87,18 @@ const ProfilePage = () => {
               <p>{user.email}</p>
               <p>{user.location}</p>
             </div>
+
             <div className="btn-container">
               <button className="btn">Edit</button>
             </div>
           </div>
+
           <div className="order-info">
-            <div>
-              <h1>Past Orders</h1>
-            </div>
+            <h1>Past Orders</h1>
+
             <div className="order-container">
               {user_orders.map((order) => {
-                return (
-                  <>
-                    <SingleOrder key={order._id} {...order} />
-                    <hr />
-                  </>
-                );
+                return <SingleOrder key={order._id} {...order} />;
               })}
             </div>
           </div>
@@ -81,7 +121,7 @@ const Wrapper = styled.section`
     height: 90vh;
     max-width: 50rem;
     max-height: 15rem;
-    background: var(--white);
+    background: var(--clr-white);
     border-radius: var(--radius);
     box-shadow: var(--shadow-2);
     padding: 2rem 2.5rem;
@@ -127,10 +167,11 @@ const Wrapper = styled.section`
     background: var(--white);
     border-radius: var(--radius);
     box-shadow: var(--shadow-2);
-    padding: 2rem 2.5rem;
+    padding: 3rem 2.5rem;
     margin: 3rem auto;
     transition: var(--transition);
     gap: 1rem;
+    text-align: center;
   }
 
   .order-container {
@@ -141,6 +182,15 @@ const Wrapper = styled.section`
     align-items: center;
     display: flex;
     flex-direction: column;
+  }
+
+  .order-container-empty {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   @media (max-width: 700px) {
